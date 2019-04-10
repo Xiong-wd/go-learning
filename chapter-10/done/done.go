@@ -50,4 +50,5 @@ func chanDemo() {
 
 func main() {
 	chanDemo()
+	fmt.Println()
 }

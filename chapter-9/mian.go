@@ -6,11 +6,12 @@
 // goroutine可能的切换点 1、i/o  select  2、channel 3、 等待锁 4、函数调用 5、runtime.Gosched()
 
 // 协程是一个非抢占式多任务处理
-// 协程
+
 package main
 
 import (
 	"fmt"
+	"runtime"
 	"time"
 )
 
@@ -19,8 +20,9 @@ func main() {
 	for i := 0;i< 10 ;i++ {
 		go func(i int) {
 			for {
+				// fmt.Println(i)
 				arr[i] ++
-				// runtime.Gosched()
+				runtime.Gosched()
 			}
 		}(i)
 	}
